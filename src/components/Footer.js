@@ -1,51 +1,60 @@
-import React from 'react';
-import '../App.css'; // Import your CSS file
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-<<<<<<< HEAD
-import { faLinkedin, faGithub, faGoogle} from '@fortawesome/free-brands-svg-icons';
-=======
-import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
->>>>>>> 2824dd45e053b8eb1d7f0698a7aed03184e65484
+import React, { useState } from 'react';
 
-const Footer = () => {
-  const year = new Date().getFullYear();
+const ContactForm = ({ onSubmit }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const sendEmail = () => {
+    const subject = encodeURIComponent(`New Contact Form Submission from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    const mailtoLink = `mailto:renukareddy442@gmail.com?subject=${subject}&body=${body}`;
+
+    // Try opening the mailto link
+    window.location.href = mailtoLink;
+
+    // Provide a fallback message if the mailto link doesn't work
+    setTimeout(() => {
+      alert("Your email client didn't open. Please send an email to renukareddy442@gmail.com with the provided details.");
+    }, 500);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendEmail();
+    onSubmit({ name, email, message }); // Pass form data to parent component
+  };
 
   return (
-    <footer style={{ marginTop: 'auto' }} className="footer">
-      <div className="footer-container">
-        <div className="footer-content">
-<<<<<<< HEAD
-          <p className="footer-copyright">Get in Contact</p>
-          <div className="footer-links">
-            <div className="footer-social">
-              <a className='App-link' style={{ textDecoration: 'none' }} href="mailto:renukareddy442@mail.com">
-                <FontAwesomeIcon icon={faGoogle} /> Email Me
-              </a>
-              <a className='App-link' style={{ textDecoration: 'none' }} href="www.linkedin.com/in/renukapasam.linkedin.com/">
-                <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
-              </a>
-              <a className='App-link' style={{ textDecoration: 'none' }} href="https://github.com/renureddy2629">
-                <FontAwesomeIcon icon={faGithub} /> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-=======
-          <p className="footer-copyright">Copyright &copy; {year} ABCDEF</p>
-          <div className="footer-links">
-            <a className='App-link' style={{ textDecoration: 'none' }} href="mailto:ABCDEF@mail.com">Contact Me</a>
-            <a className='App-link' style={{ textDecoration: 'none' }} href="https://some-random-link.linkedin.com/">LinkedIn</a>
-          </div>
-        </div>
-        <div className="footer-social">
-          <FontAwesomeIcon icon={faLinkedin} />
-          <FontAwesomeIcon icon={faGithub} />
-          <FontAwesomeIcon icon={faTwitter} />
-        </div>
->>>>>>> 2824dd45e053b8eb1d7f0698a7aed03184e65484
+    <form onSubmit={handleSubmit} className="contact-form">
+      <div className="form-fields">
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label htmlFor="message">Message:</label>
+        <textarea
+          id="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+        />
       </div>
-    </footer>
+      <button type="submit" className="submit-button">Send Message</button>
+    </form>
   );
 };
 
-export default Footer;
+export default ContactForm;

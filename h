@@ -1,0 +1,30 @@
+[33mcommit 331b52fedbc11ec7482c7c65f7f1b6d9637512de[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 1d0aeb2 2824dd4
+Author: Renuka Pasam <renukareddy442@gmail.com>
+Date:   Sat Feb 3 22:43:44 2024 -0600
+
+    Merge remote changes
+
+[33mcommit 1d0aeb2d6ec4098083608c005f55f54a0a8bd9eb[m
+Author: Renuka Pasam <renukareddy442@gmail.com>
+Date:   Sat Feb 3 22:38:57 2024 -0600
+
+    Contact and Footer
+
+[33mcommit 90b39fc06cb0cc2ed7f8cbc88d8fb97e5c35799e[m
+Author: Renuka Pasam <renukareddy442@gmail.com>
+Date:   Sat Feb 3 22:34:04 2024 -0600
+
+    Remove nested repository
+
+[33mcommit 2824dd45e053b8eb1d7f0698a7aed03184e65484[m
+Author: Renuka Pasam <renukareddy442@gmail.com>
+Date:   Sat Jan 20 20:12:00 2024 -0600
+
+    Initial commit
+
+[33mcommit 81d28fad2a1a319bfcb4f795d34a210ca934b643[m
+Author: KoushikVss <koushik.ssv@gmail.com>
+Date:   Wed Jan 10 02:05:00 2024 +0530
+
+    Initialize project using Create React App

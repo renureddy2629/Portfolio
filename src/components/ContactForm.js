@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-<<<<<<< HEAD
-const ContactForm = () => {
+const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -10,7 +9,7 @@ const ContactForm = () => {
     const subject = encodeURIComponent(`New Contact Form Submission from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
     const mailtoLink = `mailto:renukareddy442@gmail.com?subject=${subject}&body=${body}`;
-    
+
     // Try opening the mailto link
     window.location.href = mailtoLink;
 
@@ -23,6 +22,7 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendEmail();
+    onSubmit({ name, email, message }); // Pass form data to parent component
   };
 
   return (
@@ -55,49 +55,6 @@ const ContactForm = () => {
       <button type="submit" className="submit-button">Send Message</button>
     </form>
   );
-=======
-const ContactForm = ({ onSubmit }) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        onSubmit({ name, email, message }); // Pass form data to parent component
-    };
-
-    return (
-        <form onSubmit={handleSubmit} className="contact-form">
-            <div className="form-fields">
-                <label htmlFor="name">Name:</label>
-                <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <label htmlFor="message">Message:</label>
-                <textarea
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    required
-                />
-            </div> 
-            <button type="submit" className="submit-button">Send Message</button>
-        </form>
-    );
->>>>>>> 2824dd45e053b8eb1d7f0698a7aed03184e65484
 };
 
 export default ContactForm;
