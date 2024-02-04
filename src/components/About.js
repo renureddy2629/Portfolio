@@ -70,7 +70,8 @@ const About = () => {
         <section className="about-section">
             <h1 className="about-heading">About Me</h1>
             <p className="about-intro">
-
+            I am a skilled web developer and programmer proficient in HTML, JavaScript, React.js, Java, C++, and Python. As a former Quality Analyst at Cognizant, I specialized in automation, Agile methodology, and SQL. Currently pursuing a Master’s in Computer Science, I bring a diverse project portfolio, from gender recognition scripts to reporting applications and impactful solutions.
+                Add a short paragraph introducing yourself and your career goals.
             </p>
             <div className="about-sections">
                 <div className="about-section-item">

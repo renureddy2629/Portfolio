@@ -5,23 +5,9 @@ const ContactForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const sendEmail = () => {
-    const subject = encodeURIComponent(`New Contact Form Submission from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-    const mailtoLink = `mailto:renukareddy442@gmail.com?subject=${subject}&body=${body}`;
-
-    // Try opening the mailto link
-    window.location.href = mailtoLink;
-
-    // Provide a fallback message if the mailto link doesn't work
-    setTimeout(() => {
-      alert("Your email client didn't open. Please send an email to renukareddy442@gmail.com with the provided details.");
-    }, 500);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendEmail();
+
     onSubmit({ name, email, message }); // Pass form data to parent component
   };
 
@@ -52,7 +38,9 @@ const ContactForm = ({ onSubmit }) => {
           required
         />
       </div>
-      <button type="submit" className="submit-button">Send Message</button>
+      <button type="submit" className="submit-button">
+        Send Message
+      </button>
     </form>
   );
 };
